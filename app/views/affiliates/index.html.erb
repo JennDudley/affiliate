@@ -1,0 +1,37 @@
+<h1>Listing affiliates</h1>
+
+<table>
+  <tr>
+    <th>First name</th>
+    <th>Last name</th>
+    <th>Location</th>
+    <th>Website</th>
+    <th>Content</th>
+    <th>Visitors</th>
+    <th>Email</th>
+    <th>Date</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @affiliates.each do |affiliate| %>
+  <tr>
+    <td><%= affiliate.first_name %></td>
+    <td><%= affiliate.last_name %></td>
+    <td><%= affiliate.location_id %></td>
+    <td><%= affiliate.website %></td>
+    <td><%= affiliate.content %></td>
+    <td><%= affiliate.visitors %></td>
+    <td><%= affiliate.email %></td>
+    <td><%= affiliate.date %></td>
+    <td><%= link_to 'Show', affiliate %></td>
+    <td><%= link_to 'Edit', edit_affiliate_path(affiliate) %></td>
+    <td><%= link_to 'Destroy', affiliate, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Affiliate', new_affiliate_path %>
