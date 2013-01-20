@@ -101,29 +101,32 @@ line-height: 1.2em;
 text-transform: uppercase;
 }
 
-body.home .ourclothes {
+body.home .earnmoney {
 background: #e9eeef;
 min-height: 380px;
 padding-bottom: 50px;
 padding-top: 60px;
 }
 
-body.home .ourclothes h3 {
+body.home .earnmoney h3 {
 font-size: 38px;
 color: #2d7786;
 padding-bottom: 10px !important;
-padding-top: 60px;
+padding-top: 29px;
 color: #333a3b;
 line-height: 1.2em
 }
 
-body.home .ourclothes p {
+body.home .earnmoney p {
 color: #2d7786;
+font-size: 23px;
+line-height: 1.2em
 }
 
 body.home .signup_button {
 color: #fff;
 background: #2d7786;
+box-shadow: 1px 4px 4px #888;
 }
 
 button.signup_button, a.button.signup_button {
@@ -139,7 +142,7 @@ padding: 11px 14px 11px;
 -o-border-radius: 3px;
 border-radius: 3px;
 font-weight: bold;
-font-size: 13px;
+font-size: 19px;
 }
 
 /*not sure if I should have included these...*/
