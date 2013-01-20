@@ -25,7 +25,7 @@ class AffiliatesController < ApplicationController
   # GET /affiliates/new.json
   def new
     @affiliate = Affiliate.new
-
+    
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @affiliate }
@@ -46,13 +46,13 @@ class AffiliatesController < ApplicationController
 
     if @affiliate.visitors.match(/\D/) != nil 
       flash[:notice] = "Cannot have any comma's in the visitors input field"
-      redirect_to new_affiliate_url
+      render 'new'
       return
     end
 
-    if @affiliate.errors 
-      flash[:notice]
-      redirect_to new_affiliate_url
+    if @affiliate.errors.any? 
+      flash[:error]
+      render 'new'
       return
     end
      
@@ -68,29 +68,29 @@ class AffiliatesController < ApplicationController
 
   # PUT /affiliates/1
   # PUT /affiliates/1.json
-  # def update
-  #   @affiliate = Affiliate.find(params[:id])
+  def update
+    @affiliate = Affiliate.find(params[:id])
 
-  #   respond_to do |format|
-  #     if @affiliate.update_attributes(params[:affiliate])
-  #       format.html { redirect_to @affiliate, notice: 'Affiliate was successfully updated.' }
-  #       format.json { head :no_content }
-  #     else
-  #       format.html { render action: "edit" }
-  #       format.json { render json: @affiliate.errors, status: :unprocessable_entity }
-  #     end
-  #   end
-  # end
+    respond_to do |format|
+      if @affiliate.update_attributes(params[:affiliate])
+        format.html { redirect_to @affiliate, notice: 'Affiliate was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @affiliate.errors, status: :unprocessable_entity }
+      end
+    end
+  end
 
-  # # DELETE /affiliates/1
-  # # DELETE /affiliates/1.json
-  # def destroy
-  #   @affiliate = Affiliate.find(params[:id])
-  #   @affiliate.destroy
+  # DELETE /affiliates/1
+  # DELETE /affiliates/1.json
+  def destroy
+    @affiliate = Affiliate.find(params[:id])
+    @affiliate.destroy
 
-  #   respond_to do |format|
-  #     format.html { redirect_to affiliates_url }
-  #     format.json { head :no_content }
-  #   end
-  # end
+    respond_to do |format|
+      format.html { redirect_to affiliates_url }
+      format.json { head :no_content }
+    end
+  end
 end

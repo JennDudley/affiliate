@@ -1,6 +1,8 @@
 <%= flash[:notice] %>
+<%= @affiliate.errors.inspect %>
+
 <h1>New affiliate</h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Back', affiliates_path %>
+<%= link_to 'Back', home_url %>
