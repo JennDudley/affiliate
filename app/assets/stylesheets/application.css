@@ -18,6 +18,35 @@ font: 15px/21px "Helvetica Neue",Helvetica,Arial,sans-serif;
 text-rendering: optimizeLegibility;
 }
 
+body.home h1 {
+padding-top: 60px;
+}
+body.home p {
+margin-bottom: 10px;
+}
+
+h1 {
+font: 42px "Open Sans",Helvetica,Arial,sans-serif;
+padding-bottom: 10px !important;
+font-weight: 300;
+color: #333a3b;
+line-height: 1.2em;
+text-transform: uppercase;
+}
+
+h3 {
+font: 20px "Open Sans",Helvetica,Arial,sans-serif;
+font-weight: 600;
+color: #333a3b;
+}
+
+a, a:active, a:visited {
+color: #7297a1;
+text-decoration: none;
+font-weight: 500;
+cursor: pointer;
+}
+
 .wrapper {
 min-height: 100%;
 height: auto !important;
@@ -44,7 +73,6 @@ position: relative;
 }
 
 body.home #hero {
-margin-bottom: 2.4em;
 text-align: center;
 background: #fff url(https://trunkclub-assets.s3.amazonaws.com/site-assets/gifts/gifts_hero_edited.jpg) no-repeat;
 background-size: cover;
@@ -58,7 +86,7 @@ body.home #hero .copy {
 /*font: 16px/1.6 "Open Sans",Helvetica,Arial,sans-serif;*/
 color: #fff;
 width: 700px;
-position: fixed;
+position: absolute;
 top: 20%;
 left: 27%;
 }
@@ -77,9 +105,101 @@ body.home .ourclothes {
 background: #e9eeef;
 min-height: 380px;
 padding-bottom: 50px;
+padding-top: 60px;
 }
 
+body.home .ourclothes h3 {
+font-size: 38px;
+color: #2d7786;
+padding-bottom: 10px !important;
+padding-top: 60px;
+color: #333a3b;
+line-height: 1.2em
+}
 
+body.home .ourclothes p {
+color: #2d7786;
+}
+
+body.home .signup_button {
+color: #fff;
+background: #2d7786;
+}
+
+button.signup_button, a.button.signup_button {
+display: inline-block;
+text-decoration: none;
+text-transform: uppercase;
+color: #fff;
+background: #2d7786;
+padding: 11px 14px 11px;
+-webkit-border-radius: 3px;
+-moz-border-radius: 3px;
+-ms-border-radius: 3px;
+-o-border-radius: 3px;
+border-radius: 3px;
+font-weight: bold;
+font-size: 13px;
+}
+
+/*not sure if I should have included these...*/
+button, input[type="submit"], a.button, label.button {
+-webkit-transition-duration: 0.2s;
+-moz-transition-duration: 0.2s;
+-o-transition-duration: 0.2s;
+transition-duration: 0.2s;
+-webkit-transition-timing-function: ease;
+-moz-transition-timing-function: ease;
+-o-transition-timing-function: ease;
+transition-timing-function: ease;
+text-decoration: none;
+text-transform: uppercase;
+background: #2d7786;
+padding: 11px 14px 11px;
+-webkit-border-radius: 3px;
+-moz-border-radius: 3px;
+-ms-border-radius: 3px;
+-o-border-radius: 3px;
+border-radius: 3px;
+font-weight: 700;
+font-size: 13px;
+font-family: "Open Sans",Helvetica,Arial,sans-serif;
+color: #fff;
+border: 0px;
+display: inline-block;
+cursor: pointer;
+color: #fff;
+}
+
+h1, h2, h3, h4, h5, p, ul, li, a {
+-webkit-font-smoothing: antialiased;
+}
+/* end of the maybe extra's */
+
+
+body.home .signin {
+padding-top: 20px;
+min-height: 70px;
+font-size:19px;
+}
+
+.signin {
+-webkit-transition-duration: 0.2s;
+-moz-transition-duration: 0.2s;
+-o-transition-duration: 0.2s;
+transition-duration: 0.2s;
+-webkit-transition-timing-function: ease;
+-moz-transition-timing-function: ease;
+-o-transition-timing-function: ease;
+transition-timing-function: ease;
+text-decoration: none;
+font-family: "Open Sans",Helvetica,Arial,sans-serif;*/
+padding: 0;
+color: #2d7988 !important;
+/*font-weight: bold;*/
+font-size: 13px;
+font-style: italic;
+}
 
 
 
@@ -163,7 +283,7 @@ max-width: 100%;
 }
 
 img {
-	height: auto;
+height: auto;
 }
 
 
