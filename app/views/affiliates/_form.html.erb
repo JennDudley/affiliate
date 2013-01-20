@@ -19,6 +19,10 @@
     <%= f.label :last_name %><br />
     <%= f.text_field :last_name %>
   </div>
+    <div class="field">
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </div>
   <div class="field">
     <%= f.label :location_id %><br />
     <%= f.collection_select :location_id, Location.all, :id, :state %>
@@ -28,20 +32,12 @@
     <%= f.text_field :website %>
   </div>
   <div class="field">
-    <%= f.label :content %><br />
+    <%= f.label "Describe your website content" %><br />
     <%= f.text_area :content %>
   </div>
   <div class="field">
-    <%= f.label :visitors %><br />
+    <%= f.label "Visitors Per Month" %><br />
     <%= f.text_field :visitors %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :date %><br />
-    <%= f.text_field :date %>
   </div>
   <div class="actions">
     <%= f.submit %>

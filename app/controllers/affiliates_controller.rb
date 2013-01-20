@@ -44,16 +44,22 @@ class AffiliatesController < ApplicationController
     @affiliate = Affiliate.new(params[:affiliate])
     @affiliate.save
 
-    if((params["zip"] == nil) || @affiliate.visitors.match(/\D/) != nil))
-        flash[:notice] = "Remove Commas"
-        redirect_to root_path
-        return
-      end
-    
-    # states = ['Arkansas', 'Colorado', 'Illinois', 'North Carolina', 'Rhode Island', 'Connecticut']
-    # if states.include?(@affiliate.location.state)
-    
-    if @affiliate.visitors < 10000   
+    if @affiliate.visitors.match(/\D/) != nil 
+      flash[:notice] = "Cannot have any comma's in the visitors input field"
+      redirect_to new_affiliate_url
+      return
+    end
+
+    if @affiliate.errors 
+      flash[:notice]
+      redirect_to new_affiliate_url
+      return
+    end
+     
+    @affiliate.visitors = @affiliate.visitors.to_i
+
+    states = ['Arkansas', 'Colorado', 'Illinois', 'North Carolina', 'Rhode Island', 'Connecticut']
+    if states.include?(@affiliate.location.state); @affiliate.visitors < 10000
         redirect_to home_url, notice: 'Thanks your application is being processed' 
     else
         redirect_to @affiliate, notice: 'Welcome to the Trunk Club Affiliate Program'
