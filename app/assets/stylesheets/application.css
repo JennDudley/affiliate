@@ -118,6 +118,12 @@ font-size: 15px;
 font-size: 14px;
 }
 
+footer, .push {
+height: 270px;
+clear: both;
+position: relative;
+}
+
 /* HOME */
 
 body.home h1 {
@@ -142,16 +148,10 @@ min-height: 485px;
 }
 
 body.home #hero .copy {
-/*font: 16px/1.6 "Open Sans",Helvetica,Arial,sans-serif;*/
 color: #fff;
-width: 700px;
-position: absolute;
-top: 20%;
-left: 27%;
 }
 
 body.home #hero .copy h1 {
-/*margin-bottom: 0.2em;*/
 padding-top: 103px;
 font: 55px "Open Sans",Helvetica,Arial,sans-serif;
 padding-bottom: 10px !important;
@@ -245,7 +245,6 @@ font-size: 23px;
 }
 
 body.home .threefeats p {
-height: 73px;
 font-size: 23px;
 line-height: 1.2em
 }
@@ -262,16 +261,15 @@ padding-top: 20px;
 min-height: 70px;
 }
 
-body.home .threefeats .title_bottom h1 {
-padding-top: 29px;
-font-size: 22px;
-color: #2d7786;
+.threefeats .signup_button {
+margin-bottom: 20px;
 }
 
-footer, .push {
-height: 270px;
-clear: both;
-position: relative;
+
+body.home .threefeats .title_bottom h1 {
+padding-top: px;
+font-size: 22px;
+color: #2d7786;
 }
 
 /* new affiliate signup page */
@@ -365,7 +363,6 @@ text-align: right;
 body.new_affiliate .pitch .bottom_pad {
 padding-bottom: 40px;
 }
-
 
 /* from the website */
 

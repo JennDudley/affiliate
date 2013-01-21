@@ -52,7 +52,7 @@ class AffiliatesController < ApplicationController
 
     if @affiliate.errors.any? 
       flash[:error]
-      render 'new'
+      render "/affiliates/new"
       return
     end
      
