@@ -1,8 +1,56 @@
-<%= flash[:notice] %>
-<%= @affiliate.errors.inspect %>
-
-<h1>New affiliate</h1>
-
-<%= render 'form' %>
+<body class="new_affiliate">
+<div class="wrapper">
+	<div class="container">
+		<div class="row">
+			<div class="sevencol">
+				<div class="signup_form">
+					<div class="step_1">
+						<div class="number_icons one"></div>
+						<h3>Create Your Account</h3>
+					</div>
+					<%= flash[:notice] %>
+					<div class="signup">
+						<%= render 'form' %>
+					</div>
+					<p style="font-size: small; padding: 10px 5px;">
+					By clicking Submit, you agree to our <a href="/terms_of_service">Terms</a> and <a href="/privacy">Privacy Policy</a>
+					</p>
+				</div>
+			</div>	
+			<div class="fivecol last">
+				<div class="pitch">
+					<h4>What Happens Next?</h4>
+					<p>Thanks for signing up for Trunk Club's Affiliate program, we will be in touch shortly.</p>
+					<br>
+					<img alt="Trunk Club - Men’s Outfitters" src="https://trunkclub-assets.s3.amazonaws.com/site-assets/icons/press_logos.png">
+					<br>
+					<br>
+					<h4>What Guys Are Saying About Trunk Club</h4>
+					<div class="twitter_testimonial">
+						<div class="copy">
+							<p>"Final verdict on @TrunkClub - Considering how picky I am on clothes, they did very well. If you're a dude, SIGN UP. GREAT service."
+							</p>
+							<a href="https://twitter.com/chuckhemann/status/212906073345114112" target="_blank">@chuckhemann</a>
+						</div>
+					</div>
+					<div class="twitter_testimonial">
+						<div class="copy">
+							<p>Shoutout to @TrunkClub! Got my first trunk today. Awesome gear! Stuff I would never think to buy, but looks great on me!
+							</p>
+							<a href="https://twitter.com/dabigp1/status/214553669838962688" target="_blank">@dabigp1</a>
+						</div>
+					</div>
+					<div class="twitter_testimonial bottom_pad">
+						<div class="copy">
+							<p>Just finished actually trying on new clothes and assembling four outfits...at 2am! Very impressed with @Trunkclub and their system.</p>
+							<a href="https://twitter.com/shanselman/status/221538425659072512" target="_blank">@shanselman</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+<div class="push"></div>		
+</div> 
 
 <%= link_to 'Back', home_url %>
