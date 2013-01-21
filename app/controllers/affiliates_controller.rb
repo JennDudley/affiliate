@@ -44,11 +44,11 @@ class AffiliatesController < ApplicationController
     @affiliate = Affiliate.new(params[:affiliate])
     @affiliate.save
 
-    if @affiliate.visitors.match(/\D/) != nil 
-      flash[:notice] = "Cannot have any comma's in the visitors input field"
-      render 'new'
-      return
-    end
+    # if @affiliate.visitors.match(/\D/) != nil 
+    #   flash[:notice] = "Cannot have any comma's in the visitors input field"
+    #   render 'new'
+    #   return
+    # end
 
     if @affiliate.errors.any? 
       flash[:error]
@@ -56,14 +56,14 @@ class AffiliatesController < ApplicationController
       return
     end
      
-    @affiliate.visitors = @affiliate.visitors.to_i
+    # @affiliate.visitors = @affiliate.visitors.to_i
 
-    states = ['Arkansas', 'Colorado', 'Illinois', 'North Carolina', 'Rhode Island', 'Connecticut']
-    if states.include?(@affiliate.location.state); @affiliate.visitors < 10000
-        redirect_to home_url, notice: 'Thanks your application is being processed' 
-    else
-        redirect_to @affiliate, notice: 'Welcome to the Trunk Club Affiliate Program'
-    end
+    # states = ['Arkansas', 'Colorado', 'Illinois', 'North Carolina', 'Rhode Island', 'Connecticut']
+    # if states.include?(@affiliate.location.state); @affiliate.visitors < 10000
+    #     redirect_to home_url, notice: 'Thanks your application is being processed' 
+    # else
+    #     redirect_to @affiliate, notice: 'Welcome to the Trunk Club Affiliate Program'
+    # end
   end
 
   # PUT /affiliates/1
