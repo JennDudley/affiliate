@@ -6,18 +6,18 @@ class AffiliatesController < ApplicationController
   # before_filter :require_admin, :only => [:index]
 
   # Should this stuff be in the model?
-  def ensure_correct_user
-    if session[:id] != params[:id].to_i
-      redirect_to root_url, :notice => "You must be a User"
-    end
-  end
-   # if you are trying to go to users/1 then you better be user #1
+  # def ensure_correct_user
+  #   if session[:id] != params[:id].to_i
+  #     redirect_to root_url, :notice => "You must be a User"
+  #   end
+  # end
+  #  # if you are trying to go to users/1 then you better be user #1
    
-  def require_admin   
-    if User.find(session[:id]).email != "tech@trunkclub.com"
-      redirect_to root_url, :notice => 'Must be admin.'
-    end
-  end
+  # def require_admin   
+  #   if User.find(session[:id]).email != "tech@trunkclub.com"
+  #     redirect_to root_url, :notice => 'Must be admin.'
+  #   end
+  # end
    # we're running this check only on the index page
 
   def index
@@ -64,14 +64,19 @@ class AffiliatesController < ApplicationController
 
     if @affiliate.save
       flash[:error]
-      render "/affiliates/new"
-      return
+      render "/signup"
+    end
+
+    def enrollment_needs_approval?
+      states = ['Arkansas', 'Colorado', 'Illinois', 'North Carolina', 'Rhode Island', 'Connecticut']
+      states.include?(@affiliate.location.state); @affiliate.visitors < 10000
     end
 
     if enrollment_needs_approval?
-         redirect_to home_url, notice: 'Thanks your application is being processed' 
+       redirect_to home_url, notice: 'Thanks your application is being processed' 
     else
         @affiliate.update_attributes(:enrolled_at => Time.now)
+        AffiliateMailer.welcome_email(@affiliate).deliver
         redirect_to home_url, notice: 'Please check email for a verification'
     end
   end

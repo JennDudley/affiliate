@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
 
   def create
   	affiliate = Affiliate.find_by_email(params[:email])
-    if user != nil && affiliate.authenticate(params[:password])
+    if affiliate != nil && affiliate.authenticate(params[:password])
       session[:id] = affiliate.id
       redirect_to affiliate_url(affiliate.id), :notice => "Welcome Back, #{affiliate.first_name}"
     else

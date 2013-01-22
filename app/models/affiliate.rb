@@ -1,5 +1,5 @@
 class Affiliate < ActiveRecord::Base
-  attr_accessible :content, :email, :password, :password_confirmation, :first_name, :last_name, :location_id, :visitors, :website
+  attr_accessible :content, :email, :password, :password_confirmation, :enrolled_at, :first_name, :last_name, :location_id, :visitors, :website
 
   belongs_to :location
 
@@ -13,11 +13,6 @@ class Affiliate < ActiveRecord::Base
   def visitors_no_comma
   	self.visitors = visitors.gsub(/\,/,"") 
   	self.visitors = self.visitors.to_i
-  end
-
-  def enrollment_needs_approval
-  	states = ['Arkansas', 'Colorado', 'Illinois', 'North Carolina', 'Rhode Island', 'Connecticut']
-  	states.include?(self.location.state) && self.visitors < 10000
   end
 
 end

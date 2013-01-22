@@ -107,18 +107,6 @@ text-transform: uppercase;
 margin-left: 20px;
 }
 
-/* Login with Header */
-
-#navigation .headerbuttons {
-float: left;
-margin-top: 40px;
-margin-left: 20px;
-}
-
-.bttn.header {
-display: inline-block;
-}
-
 .bttn.header {
 -webkit-transition-duration: 0.2s;
 -moz-transition-duration: 0.2s;
@@ -143,83 +131,34 @@ font-size: 13px;
 color: #fff;
 }
 
-.bttn.header:hover {
-	background:#656565;
-}
-.bttn.header span {
-	color:#fff;
-	float:left;
-	padding:0 10px 0 10px;
-	text-align:center;
-	margin-top: 8px;
-}
-.triangle {
-	float:left;
-	width:0px;
-	height:0px;
-	margin:14px 9px 0 0;
-	border-left:5px solid transparent;
-	/* left arrow slant */
-	border-right:5px solid transparent;
-	/* right arrow slant */
-	border-top:5px solid #fff;
-	/* bottom,add background color here */
-	font-size:0px;
-	line-height:0px;
-}
-#content {
-	height:733px;
-	background:url('img/bg.jpg') center;
-}
-#login_box {
-	position:absolute;
-	display:block;
-	width:236px;
-	margin:2px 0 0 732px;
+.bttn.header {
+display: inline-block;
 }
 
-#tab {
-	background:#fff;
-	width:91px;
-	float:right;
-	height:38px;
-	border-top-left-radius:5px;
-	border-top-right-radius:5px;
-	height:41px;
+#navigation .headerbuttons {
+float: left;
+margin-top: 40px;
+margin-left: 20px;
 }
-#tab .bttn.header {
-	float:left;
-	margin:9px 0 0 9px;
-}
-#login_box_content {
-	background:#fff;
-	border-top-left-radius:5px;
-	border-bottom-left-radius:5px;
-	border-bottom-right-radius:5px;
-	float:left;
-	width:236px;
-}
-#login_form {
-	margin:9px 0 0 9px;
-}
-#login_form input[type=text],#login_form input[type=password] {
-	border:1px solid #d8d8d8;
-	border-radius:3px;
-	font:italic 14px Georgia,times,sans-serif;
-	height:37px;
-	width:205px;
-	margin-top:10px;
-	padding-left:10px;
-}
-#login_form input[type=submit] {
-	border:none;
-	background:#19677e;
-	color:#fff;
-	float:right;
-	margin:9px 9px 9px 0;
-	width:56px;
-	height: 29px;
-}
+
+/* Login with Header */
+
+#popupbox{
+  margin: 0; 
+  margin-left: 40%; 
+  margin-right: 40%;
+  margin-top: 50px; 
+  padding-top: 10px; 
+  width: 20%; 
+  height: 150px; 
+  position: absolute; 
+  background: #FBFBF0; 
+  border: solid #000000 2px; 
+  z-index: 9; 
+  font-family: arial; 
+  visibility: visible; 
+  }
+
 
 /* Footer */
 

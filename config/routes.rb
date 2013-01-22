@@ -16,6 +16,8 @@ Trunkclub::Application.routes.draw do
 
   resources :affiliates
 
+  get "/signup" => 'Affiliates#new', :as => 'signup'
+
   get "approve_enrollment" => 'affiliates#approve_enrollment', :as => 'approve'
   
   root :to => 'Pages#home'
