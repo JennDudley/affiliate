@@ -6,8 +6,8 @@
   <%= javascript_include_tag "application" %>
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:600' rel='stylesheet' type='text/css'>
-  <script type="text/javascript" src="js/jquery1.4.2.js"></script>
-  <script type="text/javascript" src="js/jquery-ui-1.8.2.custom.min.js"></script>
+  <script type="text/javascript" src="assets/javascripts/jquery1.4.2.js"></script>
+  <script type="text/javascript" src="assets/javascripts/jquery-ui-1.8.2.custom.min.js"></script>
   <%= csrf_meta_tags %>
 </head>
 <div id="stretch_header">
@@ -34,9 +34,9 @@
 					</li>
 				</ul>
 				<div class="headerbuttons">
-					<a href="#" class="bttn header"><span>Login</span><div class="triangle"></div></a>
+					<a href="/login" class="bttn header"><span>Login</span><div class="triangle"></div></a>
 					<div id="login_box">
-                    	<div id="tab"><a href="/login" class="login_btn"><span>Login</span><div class="triangle">
+                    	<div id="tab"><a href="/login" class="bttn header"><span>Login</span><div class="triangle">
                     	</div></a></div>
                     	<div id="login_box_content">
                         	<form id="login_form">
