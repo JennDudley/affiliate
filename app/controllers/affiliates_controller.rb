@@ -2,8 +2,8 @@ class AffiliatesController < ApplicationController
   # GET /affiliates
   # GET /affiliates.json
 
-  before_filter :ensure_correct_user, :except => [:new, :create, :index]
-  before_filter :require_admin, :only => [:index]
+  # before_filter :ensure_correct_user, :except => [:new, :create, :index]
+  # before_filter :require_admin, :only => [:index]
 
   # Should this stuff be in the model?
   def ensure_correct_user
@@ -61,9 +61,8 @@ class AffiliatesController < ApplicationController
   def create
 
     @affiliate = Affiliate.new(params[:affiliate])
-    @affiliate.save
-  
-    if @affiliate.errors.any? 
+
+    if @affiliate.save
       flash[:error]
       render "/affiliates/new"
       return
@@ -72,7 +71,7 @@ class AffiliatesController < ApplicationController
     if enrollment_needs_approval?
          redirect_to home_url, notice: 'Thanks your application is being processed' 
     else
-        @affiliate.enroll
+        @affiliate.update_attributes(:enrolled_at => Time.now)
         redirect_to home_url, notice: 'Please check email for a verification'
     end
   end

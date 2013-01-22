@@ -173,10 +173,11 @@ color: #fff;
 }
 #login_box {
 	position:absolute;
-	display:none;
+	display:block;
 	width:236px;
 	margin:2px 0 0 732px;
 }
+
 #tab {
 	background:#fff;
 	width:91px;

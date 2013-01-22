@@ -2,8 +2,9 @@ var mouse_is_inside = false;
 
 $(document).ready(function() {
 
-    $(".bttn header").click(function() {
+    $(".bttn.header").click(function() {
     var loginBox = $("#login_box");
+    alert(loginBox);
          if (loginBox.is(":visible"))
             loginBox.fadeOut("fast");
         else
