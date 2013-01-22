@@ -3,12 +3,12 @@
 <head>
   <title>Trunkclub</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
-  <script type="text/javascript" src="assets/jquery1.4.2.js"></script>
-  <script type="text/javascript" src="assets/jquery-ui-1.8.2.custom.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js?ver=1.4.2"></script>
   <%= javascript_include_tag "application" %>
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:600' rel='stylesheet' type='text/css'>
   
+    
   <%= csrf_meta_tags %>
 </head>
 <div id="stretch_header">
@@ -35,8 +35,36 @@
 					</li>
 				</ul>
 				<div class="headerbuttons">
-					<a href="#" class="bttn header">Login</a>
-					<a class="bttn header" href="/signup">Sign Up</a>
+				<div id="bar">
+        			<div id="container">
+            			<!-- Login Starts Here -->
+           				<div id="loginContainer">
+           				    <a href="#" id="loginButton"><span>Login</span><em></em></a>
+           				    <div style="clear:both"></div>
+           				    <div id="loginBox">                
+           				        
+           				        	<form id="loginForm" action="/sessions" method="post">
+           				            <fieldset id="body">
+           				                <fieldset>
+           				                    <label for="email">Email Address</label>
+           				                    <input type="text" name="email" id="email" />
+           				                </fieldset>
+           				                <fieldset>
+           				                    <label for="password">Password</label>
+           				                    <input type="password" name="password" id="password" />
+           				                </fieldset>
+           				                <input type="submit" id="login" value="Sign in" />
+           				                <label for="checkbox"><input type="checkbox" id="checkbox" />Remember me</label>
+           				            </fieldset>
+           				            <span><a href="#">Forgot your password?</a></span>
+           				        </form>
+           				    </div>
+           				</div>
+            			<!-- Login Ends Here -->
+        			</div>
+    			</div>
+					<!-- <a class="bttn header" href="/signup">Sign Up</a>
+					 <a href="#" class="bttn header">Login</a> --> 
 				</div>
 			</div>
 		</div>
