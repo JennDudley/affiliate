@@ -5,4 +5,9 @@ class AffiliateMailer < ActionMailer::Base
     @affiliate = affiliate
     mail(:to => user.email, :subject => "Welcome to Trunk Club Affiliates")
   end
+
+  def new(affiliate)
+  	@affiliate = affiliate
+  	mail(:to => bobbileehartman@gmail.com, :subject => "You have a New Affiliate Applicant")
+	end
 end

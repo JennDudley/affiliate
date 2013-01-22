@@ -1,6 +1,25 @@
 class AffiliatesController < ApplicationController
   # GET /affiliates
   # GET /affiliates.json
+
+  before_filter :ensure_correct_user, :except => [:new, :create, :index]
+  before_filter :require_admin, :only => [:index]
+
+  # Should this stuff be in the model?
+  def ensure_correct_user
+    if session[:id] != params[:id].to_i
+      redirect_to root_url, :notice => "You must be a User"
+    end
+  end
+   # if you are trying to go to users/1 then you better be user #1
+   
+  def require_admin   
+    if User.find(session[:id]).email != "tech@trunkclub.com"
+      redirect_to root_url, :notice => 'Must be admin.'
+    end
+  end
+   # we're running this check only on the index page
+
   def index
     @affiliates = Affiliate.all
 
@@ -43,27 +62,24 @@ class AffiliatesController < ApplicationController
 
     @affiliate = Affiliate.new(params[:affiliate])
     @affiliate.save
-
-    # if @affiliate.visitors.match(/\D/) != nil 
-    #   flash[:notice] = "Cannot have any comma's in the visitors input field"
-    #   render 'new'
-    #   return
-    # end
-
+  
     if @affiliate.errors.any? 
       flash[:error]
       render "/affiliates/new"
       return
     end
-     
-    # @affiliate.visitors = @affiliate.visitors.to_i
 
-    # states = ['Arkansas', 'Colorado', 'Illinois', 'North Carolina', 'Rhode Island', 'Connecticut']
-    # if states.include?(@affiliate.location.state); @affiliate.visitors < 10000
-    #     redirect_to home_url, notice: 'Thanks your application is being processed' 
-    # else
-    #     redirect_to @affiliate, notice: 'Welcome to the Trunk Club Affiliate Program'
-    # end
+    if enrollment_needs_approval?
+         redirect_to home_url, notice: 'Thanks your application is being processed' 
+    else
+        @affiliate.enroll
+        redirect_to home_url, notice: 'Please check email for a verification'
+    end
+  end
+
+  def approve_enrollment
+      @affiliate.update_attributes(:enrolled_at => Time.now)
+      AffiliateMailer.welcome_email(@affiliate).deliver
   end
 
   # PUT /affiliates/1

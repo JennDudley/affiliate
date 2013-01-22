@@ -1,12 +1,12 @@
 class Affiliate < ActiveRecord::Base
-  attr_accessible :content, :email, :first_name, :last_name, :location_id, :visitors, :website
+  attr_accessible :content, :email, :password, :password_confirmation, :first_name, :last_name, :location_id, :visitors, :website
 
   belongs_to :location
 
+  has_secure_password
   validates_uniqueness_of :email
   validates_presence_of :email, :first_name, :last_name, :location_id, :visitors, :website
   before_create :visitors_no_comma
-  after_save :location_visitors
   validates_format_of :website, :with => /^((http|https):\/\/)?[a-z0-9]+([-.]{1}[a-z0-9]+).[a-z]{2,5}(:[0-9]{1,5})?(\/.)?$/ix
   validates_format_of :email, :with => /^([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,})$/i
 
@@ -15,13 +15,9 @@ class Affiliate < ActiveRecord::Base
   	self.visitors = self.visitors.to_i
   end
 
-  def location_visitors
+  def enrollment_needs_approval
   	states = ['Arkansas', 'Colorado', 'Illinois', 'North Carolina', 'Rhode Island', 'Connecticut']
-  	if states.include?(self.location.state); self.visitors < 10000
-  		redirect_to home_url, notice: 'Thanks your application is being processed' 
-  	else
-    	redirect_to @affiliate, notice: 'Welcome to the Trunk Club Affiliate Program'
-  	end
+  	states.include?(self.location.state) && self.visitors < 10000
   end
 
 end
@@ -37,3 +33,4 @@ end
 # WEBSITE VALIDATION
 # allows the user to choose whether or not they would like to use http:// ...
 # got advice from this stackoverflow: http://stackoverflow.com/questions/1128168/validation-for-url-domain-using-regex-rails
+

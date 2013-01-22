@@ -4,17 +4,42 @@
   <title>Trunkclub</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
+  <script type="text/javascript" src="js/jquery1.4.2.js"></script>
+  <script type="text/javascript" src="js/jquery-ui-1.8.2.custom.min.js"></script>
+  <script type="text/javascript" src="js/login.js"></script>
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:600' rel='stylesheet' type='text/css'>
   <%= csrf_meta_tags %>
 </head>
 <div id="stretch_header">
-		<div id="header_holder">
-			<a href="/" id="masthead">
+	<div id="header_holder">
+		<a href="/" id="masthead">
 			<div class="logo">
 				<img alt="Trunk Club - Men’s Outfitters" src="https://www.trunkclub.com/assets/common/tc_logo_pixelhint-50c9a49ea6c3e0ac0e52a370b2191b47.png">
 			</div>
-			</a>
+		</a>
+		<div class="nav_holder" data-behavior="Navigation">
+			<div id="navigation">
+				<ul class="headerlinks">
+					<li>
+					<a href="http://www.trunkclub.com" target="_blank">Trunk Club Home</a>
+					</li>
+					<li>
+					<a href="/">Benefits</a>
+					</li>
+					<li>
+					<a href="/">Invite</a>
+					</li>
+					<li>
+					<a href="/">Learn More</a>
+					</li>
+				</ul>
+				<div class="headerbuttons">
+					<a href="/login" class="bttn header"><span>Login</span><div class="triangle"></div></a>
+
+					<a class="bttn header" href="/affiliates/new">Sign Up</a>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>
@@ -70,4 +95,5 @@
 		</div>
 	</footer>
 </div>
+
 </html>
