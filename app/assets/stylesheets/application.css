@@ -56,7 +56,7 @@ height: 100%;
 margin: 0 auto -270px;
 }
 
-/* NAVBAR AND FOOOTER begin */
+/* NAVBAR/HEADER AND FOOOTER begin */
 
 #stretch_header {
 min-height: 96px;
@@ -68,6 +68,12 @@ height: 130px;
 max-width: 1140px;
 margin: auto;
 position: relative;
+}
+
+#stretch_header #masthead {
+	display: block;
+	float: left;
+	margin-top: 40px;
 }
 
 #stretch_header #masthead {
@@ -101,37 +107,46 @@ text-transform: uppercase;
 margin-left: 20px;
 }
 
+/* Login with Header */
+
 #navigation .headerbuttons {
 float: left;
 margin-top: 40px;
 margin-left: 20px;
 }
 
-.bttn.header, .bttn.invite, .bttn_designer {
+.bttn.header {
 display: inline-block;
 }
 
-
-
-/* Login within Nav Bar */
-
-.button.header {
-	text-decoration:none;
-	text-shadow:1px 1px 0 #000;
-	-moz-text-shadow:1px 1px 0 #000;
-	-webkit-text-shadow:1px 1px 0 #000;
-	color:#fff;
-	font-weight:bold;
-	font-size:13px;
-	margin-top:11px;
-	background:#3d3d3d;
-	float:right;
-	height:32px;
+.bttn.header {
+-webkit-transition-duration: 0.2s;
+-moz-transition-duration: 0.2s;
+-o-transition-duration: 0.2s;
+transition-duration: 0.2s;
+-webkit-transition-timing-function: ease;
+-moz-transition-timing-function: ease;
+-o-transition-timing-function: ease;
+transition-timing-function: ease;
+text-decoration: none;
+text-transform: uppercase;
+background: #2d7786;
+padding: 11px 14px 11px;
+-webkit-border-radius: 3px;
+-moz-border-radius: 3px;
+-ms-border-radius: 3px;
+-o-border-radius: 3px;
+border-radius: 3px;
+font-family: "Open Sans",Helvetica,Arial,sans-serif;
+font-weight: bold;
+font-size: 13px;
+color: #fff;
 }
-.button.header:hover {
+
+.bttn.header:hover {
 	background:#656565;
 }
-.button-header span {
+.bttn.header span {
 	color:#fff;
 	float:left;
 	padding:0 10px 0 10px;
@@ -171,7 +186,7 @@ display: inline-block;
 	border-top-right-radius:5px;
 	height:41px;
 }
-#tab .login_btn {
+#tab .bttn.header {
 	float:left;
 	margin:9px 0 0 9px;
 }
@@ -204,9 +219,6 @@ display: inline-block;
 	width:56px;
 	height: 29px;
 }
-
-
-
 
 /* Footer */
 
@@ -404,7 +416,7 @@ font-size: 22px;
 color: #2d7786;
 }
 
-/* signup page */
+/* new affiliate signup page */
 
 body.new_affiliate {
 background: #e9eeef;
@@ -496,43 +508,7 @@ body.new_affiliate .pitch .bottom_pad {
 padding-bottom: 40px;
 }
 
-input {
--webkit-appearance: textfield;
-padding: 10px;
-width: 45%;
-background-color: white;
-border: 2px inset;
-border-image: initial;
--webkit-rtl-ordering: logical;
--webkit-user-select: text;
-cursor: auto;
-}
-
 /* from the website */
-
-.bttn.header, .bttn.invite, .bttn_designer, .bttn.getstarted {
--webkit-transition-duration: 0.2s;
--moz-transition-duration: 0.2s;
--o-transition-duration: 0.2s;
-transition-duration: 0.2s;
--webkit-transition-timing-function: ease;
--moz-transition-timing-function: ease;
--o-transition-timing-function: ease;
-transition-timing-function: ease;
-text-decoration: none;
-text-transform: uppercase;
-background: #2d7786;
-padding: 11px 14px 11px;
--webkit-border-radius: 3px;
--moz-border-radius: 3px;
--ms-border-radius: 3px;
--o-border-radius: 3px;
-border-radius: 3px;
-font-family: "Open Sans",Helvetica,Arial,sans-serif;
-font-weight: bold;
-font-size: 13px;
-color: #fff;
-}
 
 button, input[type="submit"], a.button, label.button {
 -webkit-transition-duration: 0.2s;

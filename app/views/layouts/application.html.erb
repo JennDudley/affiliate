@@ -4,15 +4,14 @@
   <title>Trunkclub</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
-  <script type="text/javascript" src="js/jquery1.4.2.js"></script>
-  <script type="text/javascript" src="js/jquery-ui-1.8.2.custom.min.js"></script>
-  <script type="text/javascript" src="js/login.js"></script>
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:600' rel='stylesheet' type='text/css'>
+  <script type="text/javascript" src="js/jquery1.4.2.js"></script>
+  <script type="text/javascript" src="js/jquery-ui-1.8.2.custom.min.js"></script>
   <%= csrf_meta_tags %>
 </head>
 <div id="stretch_header">
-	<div id="header_holder">
+		<div id="header_holder">
 		<a href="/" id="masthead">
 			<div class="logo">
 				<img alt="Trunk Club - Men’s Outfitters" src="https://www.trunkclub.com/assets/common/tc_logo_pixelhint-50c9a49ea6c3e0ac0e52a370b2191b47.png">
@@ -35,12 +34,25 @@
 					</li>
 				</ul>
 				<div class="headerbuttons">
-					<a href="/login" class="bttn header"><span>Login</span><div class="triangle"></div></a>
-
-					<a class="bttn header" href="/affiliates/new">Sign Up</a>
+					<a href="#" class="bttn header"><span>Login</span><div class="triangle"></div></a>
+					<div id="login_box">
+                    	<div id="tab"><a href="/login" class="login_btn"><span>Login</span><div class="triangle">
+                    	</div></a></div>
+                    	<div id="login_box_content">
+                        	<form id="login_form">
+                            	<h2>Give us the deets..</h2>
+                            	<input type="text" placeholder="Username" />
+                            	<input type="password" placeholder="Password" />
+                            	<input type="submit" value="Do it!" />
+                        	</form>
+                    	</div>
+                	</div>
+					<a class="bttn header" href="/signup">Sign Up</a>
 				</div>
 			</div>
 		</div>
+	</div>
+
 	</div>
 </div>
 
@@ -95,5 +107,4 @@
 		</div>
 	</footer>
 </div>
-
 </html>
