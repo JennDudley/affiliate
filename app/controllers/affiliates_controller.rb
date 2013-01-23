@@ -25,12 +25,11 @@ class AffiliatesController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @affiliates }
+      format.json { render json: @affiliate }
     end
   end
 
-  # GET /affiliates/1
-  # GET /affiliates/1.json
+
   def show
     @affiliate = Affiliate.find(params[:id])
 
@@ -40,50 +39,43 @@ class AffiliatesController < ApplicationController
     end
   end
 
-  # GET /affiliates/new
-  # GET /affiliates/new.json
   def new
     @affiliate = Affiliate.new
-    
+
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @affiliate }
     end
   end
 
-  # GET /affiliates/1/edit
+
   def edit
     @affiliate = Affiliate.find(params[:id])
   end
 
-  # POST /affiliates
-  # POST /affiliates.json
-  def create
 
+  def create
     @affiliate = Affiliate.new(params[:affiliate])
 
-    if !@affiliate.save
-      flash[:error]  # Error about not being able to save / update database
-      render "/signup"
-      return
-    end
-
-    if @affiliate.needs_enrollment_approval?
-       redirect_to home_url, notice: 'Thanks, your application is being process.'
+    if @affiliate.save
+      if @affiliate.needs_tobe_approved
+        redirect_to @affiliate, notice: 'application will be need to be approved'
+      else 
+        redirect_to @affiliate, notice: 'application was accepted!'
+      end
     else
-       affiliate.update_attributes(:enrolled_at => Time.now)
-       AffiliateMailer.welcome_email(@affiliate).deliver
-       redirect_to @affiliate, notice: 'Thanks for your application. Please check email for verification'
+     @affiliate.errors     
+     render "new"
     end
+    
   end
+  
+  # def approve_enrollment
+  #     @affiliate.update_attributes(:enrolled_at => Time.now)
+  #     AffiliateMailer.welcome_email(@affiliate).deliver
+  # end
 
-  def approve_enrollment
-      @affiliate.update_attributes(:enrolled_at => Time.now)
-      AffiliateMailer.welcome_email(@affiliate).deliver
-  end
 
-  # PUT /affiliates/1
-  # PUT /affiliates/1.json
   def update
     @affiliate = Affiliate.find(params[:id])
 
@@ -98,14 +90,13 @@ class AffiliatesController < ApplicationController
     end
   end
 
-  # DELETE /affiliates/1
-  # DELETE /affiliates/1.json
+
   def destroy
-    @affiliate = Affiliate.find(params[:id])
-    @affiliate.destroy
+    @user = User.find(params[:id])
+    @user.destroy
 
     respond_to do |format|
-      format.html { redirect_to affiliates_url }
+      format.html { redirect_to users_url }
       format.json { head :no_content }
     end
   end

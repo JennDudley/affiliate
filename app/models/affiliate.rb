@@ -6,19 +6,18 @@ class Affiliate < ActiveRecord::Base
   has_secure_password
   validates_uniqueness_of :email
   validates_presence_of :email, :first_name, :last_name, :location_id, :visitors, :website, :password, :password_confirmation
-  before_create :visitors_no_comma
+  before_save :remove_comma_visitors
   validates_format_of :website, :with => /^((http|https):\/\/)?[a-z0-9]+([-.]{1}[a-z0-9]+).[a-z]{2,5}(:[0-9]{1,5})?(\/.)?$/ix
   validates_format_of :email, :with => /^([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,})$/i
 
-  def visitors_no_comma
-  	self.visitors = visitors.gsub(/\,/,"") 
+  def remove_comma_visitors
+      self.visitors = visitors.gsub(/\,/,"")
   end
 
-  def enrollment_needs_approval?
-      states = ['Arkansas', 'Colorado', 'Illinois', 'North Carolina', 'Rhode Island', 'Connecticut']
-    self.visitors = self.visitors.to_i
-     return states.include?(self.location.state) || self.visitors < 10000
-  end
+  def needs_tobe_approved
+     states = ['Arkansas', 'Colorado', 'Illinois', 'North Carolina', 'Rhode Island', 'Connecticut']
+     self.visitors.length < 5  || states.include?(self.location.state) 
+  end
 
 end
 
