@@ -37,6 +37,10 @@
 				<div class="headerbuttons">
 				<div id="bar">
         			<div id="container">
+        				<% if current_user %>
+							<!-- <a class="bttn header" href="/affiliate/#{current_user.id}">Profile</a> -->
+							<a href="/logout" class="bttn header">Logout</a>
+						<% else %> 
             			<!-- Login Starts Here -->
            				<div id="loginContainer">
            				    <a href="#" id="loginButton"><span>Login</span><em></em></a>
@@ -47,11 +51,12 @@
            				            <fieldset id="body">
            				                <fieldset>
            				                    <label for="email">Email Address</label>
-           				                    <input type="text" name="email" id="email" />
+           				                    <input type="text" name="email" id="email" required="true" />
+
            				                </fieldset>
            				                <fieldset>
            				                    <label for="password">Password</label>
-           				                    <input type="password" name="password" id="password" />
+           				                    <input type="password" name="password" id="password" required="true" />
            				                </fieldset>
            				                <input type="submit" id="login" value="Sign in" />
            				                <label for="checkbox"><input type="checkbox" id="checkbox" />Remember me</label>
@@ -61,6 +66,7 @@
            				    </div>
            				</div>
             			<!-- Login Ends Here -->
+            			<% end %>
         			</div>
     			</div>
 					<!-- <a class="bttn header" href="/signup">Sign Up</a>

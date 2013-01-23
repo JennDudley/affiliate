@@ -64,12 +64,14 @@ class AffiliatesController < ApplicationController
 
     if @affiliate.save
       flash[:error]
-      render "/signup"
+      redirect_to "/signup"
     end
 
     def enrollment_needs_approval?
       states = ['Arkansas', 'Colorado', 'Illinois', 'North Carolina', 'Rhode Island', 'Connecticut']
-      states.include?(@affiliate.location.state); @affiliate.visitors < 10000
+      states.include?(@affiliate.location.state)
+      @affiliate.visitors = @affiliate.visitors.to_i
+      @affiliate.visitors < 10000
     end
 
     if enrollment_needs_approval?

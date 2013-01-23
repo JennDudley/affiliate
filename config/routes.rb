@@ -6,12 +6,6 @@ Trunkclub::Application.routes.draw do
 
   get "/logout" => 'Sessions#destroy', :as => 'logout'
 
-  get "sessions/new"
-
-  get "sessions/create"
-
-  get "sessions/destroy"
-
   get "/home" => "pages#home", :as => "home"
 
   resources :affiliates

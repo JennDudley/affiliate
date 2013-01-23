@@ -5,14 +5,13 @@ class Affiliate < ActiveRecord::Base
 
   has_secure_password
   validates_uniqueness_of :email
-  validates_presence_of :email, :first_name, :last_name, :location_id, :visitors, :website
+  validates_presence_of :email, :first_name, :last_name, :location_id, :visitors, :website, :password, :password_confirmation
   before_create :visitors_no_comma
   validates_format_of :website, :with => /^((http|https):\/\/)?[a-z0-9]+([-.]{1}[a-z0-9]+).[a-z]{2,5}(:[0-9]{1,5})?(\/.)?$/ix
   validates_format_of :email, :with => /^([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,})$/i
 
   def visitors_no_comma
   	self.visitors = visitors.gsub(/\,/,"") 
-  	self.visitors = self.visitors.to_i
   end
 
 end
