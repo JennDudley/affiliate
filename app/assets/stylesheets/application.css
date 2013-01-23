@@ -475,8 +475,12 @@ font-size: 23px;
 }
 
 body.home .threefeats p {
-font-size: 23px;
-line-height: 1.2em
+font-size: 18px;
+line-height: 1.2em;
+}
+
+body.home .threefeats .border {
+	border-bottom: 1px solid #dadfe0;
 }
 
 body.home .threefeats .title_top h1 {
@@ -487,12 +491,12 @@ color: #2d7786;
 }
 
 body.home .threefeats .title_bottom {
-padding-top: 20px;
+padding-bottom: 20px;
 min-height: 70px;
 }
 
 .threefeats .signup_button {
-margin-bottom: 20px;
+margin-bottom: 60px;
 }
 
 
@@ -660,7 +664,7 @@ width: 13.45%;
 }
 
 .row .threecol {
-width: 22.05%;
+width: 24.05%;
 }
 
 .row .fourcol {

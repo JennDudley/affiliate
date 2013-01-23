@@ -1,40 +1,46 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>First name:</b>
-  <%= @affiliate.first_name %>
-</p>
-
-<p>
-  <b>Last name:</b>
-  <%= @affiliate.last_name %>
-</p>
-
-<p>
-  <b>Location:</b>
-  <%= @affiliate.location_id %>
-</p>
-
-<p>
-  <b>Website:</b>
-  <%= @affiliate.website %>
-</p>
-
-<p>
-  <b>Content:</b>
-  <%= @affiliate.content %>
-</p>
-
-<p>
-  <b>Visitors:</b>
-  <%= @affiliate.visitors %>
-</p>
-
-<p>
-  <b>Email:</b>
-  <%= @affiliate.email %>
-</p>
-
-
-<%= link_to 'Edit', edit_affiliate_path(@affiliate) %> |
-<%= link_to 'Back', home_url %>
+<div wrapper>
+  <div class="container">
+    <div row>
+      <p>
+        <b>First name:</b>
+        <%= @affiliate.first_name %>
+      </p>
+      
+      <p>
+        <b>Last name:</b>
+        <%= @affiliate.last_name %>
+      </p>
+      
+      <p>
+        <b>Location:</b>
+        <%= @affiliate.location_id %>
+      </p>
+      
+      <p>
+        <b>Website:</b>
+        <%= @affiliate.website %>
+      </p>
+      
+      <p>
+        <b>Content:</b>
+        <%= @affiliate.content %>
+      </p>
+      
+      <p>
+        <b>Visitors:</b>
+        <%= @affiliate.visitors %>
+      </p>
+      
+      <p>
+        <b>Email:</b>
+        <%= @affiliate.email %>
+      </p>
+      
+      
+      <%= link_to 'Edit', edit_affiliate_path(@affiliate) %> |
+      <%= link_to 'Back', home_url %>
+    </div>
+  </div>
+</div>
