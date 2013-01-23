@@ -1,23 +1,22 @@
 class AffiliatesController < ApplicationController
-  # GET /affiliates
-  # GET /affiliates.json
 
-  # before_filter :ensure_correct_user, :except => [:new, :create, :index]
-  # before_filter :require_admin, :only => [:index]
+  before_filter :ensure_correct_user, :except => [:new, :create, :index]
+  before_filter :require_admin, :only => [:index]
 
   # Should this stuff be in the model?
-  # def ensure_correct_user
-  #   if session[:id] != params[:id].to_i
-  #     redirect_to root_url, :notice => "You must be a User"
-  #   end
-  # end
-  #  # if you are trying to go to users/1 then you better be user #1
+  def ensure_correct_user
+    if session[:id] != params[:id].to_i 
+      elsif session[:id] == nil
+       redirect_to root_url, :notice => "You must be an Admin"
+     end
+   end
+  # if you are trying to go to users/1 then you better be user #1
    
-  # def require_admin   
-  #   if User.find(session[:id]).email != "tech@trunkclub.com"
-  #     redirect_to root_url, :notice => 'Must be admin.'
-  #   end
-  # end
+  def require_admin   
+     if Affiliate.find(session[:id]).email != "tech@trunkclub.com"
+       redirect_to root_url, :notice => 'Must be admin.'
+     end
+   end
    # we're running this check only on the index page
 
   def index
@@ -67,7 +66,7 @@ class AffiliatesController < ApplicationController
      @affiliate.errors     
      render "new"
     end
-    
+
   end
   
   # def approve_enrollment

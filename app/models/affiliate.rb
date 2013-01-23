@@ -12,6 +12,7 @@ class Affiliate < ActiveRecord::Base
 
   def remove_comma_visitors
       self.visitors = visitors.gsub(/\,/,"")
+      # would like to also remove nonnumbers
   end
 
   def needs_tobe_approved
