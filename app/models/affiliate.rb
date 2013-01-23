@@ -14,6 +14,12 @@ class Affiliate < ActiveRecord::Base
   	self.visitors = visitors.gsub(/\,/,"") 
   end
 
+  def enrollment_needs_approval?
+      states = ['Arkansas', 'Colorado', 'Illinois', 'North Carolina', 'Rhode Island', 'Connecticut']
+    self.visitors = self.visitors.to_i
+     return states.include?(self.location.state) || self.visitors < 10000
+  end
+
 end
 
 # EMAIL VALIDATION

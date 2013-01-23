@@ -62,24 +62,18 @@ class AffiliatesController < ApplicationController
 
     @affiliate = Affiliate.new(params[:affiliate])
 
-    if @affiliate.save
-      flash[:error]
-      redirect_to "/signup"
+    if !@affiliate.save
+      flash[:error]  # Error about not being able to save / update database
+      render "/signup"
+      return
     end
 
-    def enrollment_needs_approval?
-      states = ['Arkansas', 'Colorado', 'Illinois', 'North Carolina', 'Rhode Island', 'Connecticut']
-      states.include?(@affiliate.location.state)
-      @affiliate.visitors = @affiliate.visitors.to_i
-      @affiliate.visitors < 10000
-    end
-
-    if enrollment_needs_approval?
-       redirect_to home_url, notice: 'Thanks your application is being processed' 
+    if @affiliate.needs_enrollment_approval?
+       redirect_to home_url, notice: 'Thanks, your application is being process.'
     else
-        @affiliate.update_attributes(:enrolled_at => Time.now)
-        AffiliateMailer.welcome_email(@affiliate).deliver
-        redirect_to home_url, notice: 'Please check email for a verification'
+       affiliate.update_attributes(:enrolled_at => Time.now)
+       AffiliateMailer.welcome_email(@affiliate).deliver
+       redirect_to @affiliate, notice: 'Thanks for your application. Please check email for verification'
     end
   end
 
