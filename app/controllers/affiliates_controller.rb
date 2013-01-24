@@ -10,7 +10,7 @@ class AffiliatesController < ApplicationController
        redirect_to root_url, :notice => "You must be an Admin"
      end
    end
-  # if you are trying to go to users/1 then you better be user #1
+  # if you are trying to go to affiliates/1 then you better be user #1
    
   def require_admin   
      if Affiliate.find(session[:id]).email != "tech@trunkclub.com"
@@ -58,8 +58,11 @@ class AffiliatesController < ApplicationController
 
     if @affiliate.save
       if @affiliate.needs_tobe_approved
-        redirect_to @affiliate, notice: 'application will be need to be approved'
+        redirect_to home_url, notice: 'application will be need to be approved'
+        
       else 
+        @affiliate.update_attributes(:enrolled_at => Time.now)
+        AffiliateMailer.welcome_email(@affiliate).deliver
         redirect_to @affiliate, notice: 'application was accepted!'
       end
     else
@@ -91,11 +94,11 @@ class AffiliatesController < ApplicationController
 
 
   def destroy
-    @user = User.find(params[:id])
-    @user.destroy
+    @affiliate = Affiliate.find(params[:id])
+    @affiliate.destroy
 
     respond_to do |format|
-      format.html { redirect_to users_url }
+      format.html { redirect_to affiliates_url }
       format.json { head :no_content }
     end
   end

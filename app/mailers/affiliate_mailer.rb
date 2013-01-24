@@ -3,7 +3,7 @@ class AffiliateMailer < ActionMailer::Base
 
   def welcome_email(affiliate)
     @affiliate = affiliate
-    mail(:to => user.email, :subject => "Welcome to Trunk Club Affiliates")
+    mail(:to => affiliate.email, :subject => "Welcome to Trunk Club Affiliates")
   end
 
   # def new(affiliate)
